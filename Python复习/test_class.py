@@ -1,19 +1,30 @@
-# class Myclass(object):
-#     """A simple example class"""
-#     i = 12345
-#     def f(self):
-#         return 'hello world'
-#
-# x = Myclass()
-#
-# def __init__(self):
-#     self.data = []
+class Person(object):
+    def __init__(self,name):
+        self.name = name
 
-class complex:
-    def __init__(self,realpart,imagpart):
-        self.r = realpart
-        self.i = imagpart
+    def get_details(self):
+        return self.name
 
-x = complex(3.0,-4.5)
-print("{};{}".format(x.r,x.i))
+class Student(Person):
+    def __init__(self,name,branch,year):
+        Person.__init__(self,name)
+        self.branch = branch
+        self.year = year
+    def get_details(self):
+        return "{} studies {} and is in {} year.".format(self.name,self.branch,self.year)
+
+class Teacher(Person):
+    def __init__(self,name,papers):
+        Person.__init__(self,name)
+        self.papers = papers
+    def get_details(self):
+        return "{} teachers {}.".format(self.name,','.join(self.papers))
+
+person1 = Person('Sachin')
+student1 = Student('Kusha1','CSE',2005)
+teacher1 = Teacher('Huchen',['c','C++'])
+
+print(person1.get_details())
+print(student1.get_details())
+print(teacher1.get_details())
 
