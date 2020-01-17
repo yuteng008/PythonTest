@@ -11,6 +11,7 @@ for i in range(n):
 c = []
 for i in range(n):
     c.append([a[i][j] * b[i][j] for j in range(n)])
+    print(c)
 
 print("-" * 7 * n)
 for x in c:
